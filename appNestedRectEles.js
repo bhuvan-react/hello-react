@@ -42,7 +42,13 @@ const parent = React.createElement(
   ])]
 ); it will look like this. It will be ok with one parent with two child or two parents with three children it will look messy/untidy.
 To achieve this there is something called JSX
+
+//React Element
+//React DOM Element
  */
+
+//React Element
+//React DOM Element
 
 const parent = React.createElement("div", { id: "parent" }, [
   React.createElement("div", { id: "child1" }, [
@@ -63,3 +69,23 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 // root.render(heading);
 const ptag = React.createElement("p", { id: "ptag" }, "hi this is pargraph");
 root.render(parent);
+
+// what if there are more than one component. place it another component is called as COMPONENT COMPOSITION.
+
+const Title = () => (
+    <div className="title">
+      <p>it's pargraph</p>
+    </div>
+  );
+  /**  
+   above function can be written as below like normal function 
+   
+   const Title = function ()  {
+      return(
+         <div className="title">
+      <p>it's pargraph</p>
+    </div> 
+      )
+   }
+   
+   */
