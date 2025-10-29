@@ -46,14 +46,14 @@ export const Body = () => {
   ) : (
     <div className="body-container">
        
-      <div className="filter">
-        <div className="search">
-          <input type="text" className="search-box" value={searchText} onChange={(e) => setSearchText(e.target.value)}></input>
-          <button onClick={handleSearch}>Search</button>
+      <div className="filter  flex items-center">
+        <div className="search m-4 p-4 flex items-center">
+          <input type="text" className="border border-solid border-black" value={searchText} onChange={(e) => setSearchText(e.target.value)}></input>
+          <button  className="px-4 py-2 bg-green-100  m-4 text-green-700 font-medium rounded-xl hover:bg-green-200 transition " onClick={handleSearch}>Search</button>
         </div>
 
         <button
-          className="filter-btn"
+          className="filter"
           onClick={() => {
             const filteredList = listOfRestaurants?.filter(
               (res) => res.avgRating > 4
