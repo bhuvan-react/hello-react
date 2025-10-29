@@ -42,3 +42,14 @@
 
     whenever a state variable changes React my re-rendering the component.
     React is good at DOM manipulations. This is the core logic of React
+
+# Single Responsibilty Principle.
+
+    - More reusable
+    - More maintainable
+    - More Testable
+
+# Custom Hooks
+
+    - utitlty functions (normal functions)
+    we will take out some responisbilty from a component and extract in a hook called custom hook

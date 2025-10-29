@@ -6,11 +6,11 @@ const RestaruantMenu = () => {
   }, []);
 
   const fetchMenu = async () => {
-    const dataJson = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9352403&lng=77.624532&restaurantId=5934&catalog_qa=undefined&submitAction=ENTER"
+    const data = await fetch(
+      "https://corsproxy.io/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9352403&lng=77.624532&restaurantId=65075&catalog_qa=undefined&submitAction=ENTER"
     );
-    const data = await dataJson.json();
-    console.log(data, "data");
+    const json = await data.json();
+    console.log(json, "data");
   };
 
   return (
