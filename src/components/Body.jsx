@@ -49,11 +49,11 @@ export const Body = () => {
       <div className="filter  flex items-center">
         <div className="search m-4 p-4 flex items-center">
           <input type="text" className="border border-solid border-black" value={searchText} onChange={(e) => setSearchText(e.target.value)}></input>
-          <button  className="px-4 py-2 bg-green-100  m-4 text-green-700 font-medium rounded-xl hover:bg-green-200 transition " onClick={handleSearch}>Search</button>
+          <button  className="px-4 py-2 bg-green-100  m-4 text-green-400 font-medium rounded-xl hover:bg-green-200 transition " onClick={handleSearch}>Search</button>
         </div>
-
+        
         <button
-          className="filter"
+          className="bg-green-400 hover:bg-green-500 text-white font-medium px-6 py-2 rounded-md shadow-sm transition-all duration-200 transform hover:scale-105"
           onClick={() => {
             const filteredList = listOfRestaurants?.filter(
               (res) => res.avgRating > 4
@@ -65,7 +65,7 @@ export const Body = () => {
           Top Rated Restaurants
         </button>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {listRestos &&
           listRestos.map((res, index) => (
             <RestaruantCard key={index} {...res} />
