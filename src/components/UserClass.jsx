@@ -29,10 +29,10 @@ class UserClass extends Component {
     return (
       <div className="user-info">
         <h1>Count: {this.state.count}</h1>
-        <img src={avatar_url} />  
-        <h2>Name: {name} </h2>
-        <h3>Location: {location}</h3>
-        <h4>ID: {id}</h4>
+        <img src={avatar_url} className="w-20 m-4"/>  
+        <h2 className="m-2 p-2">Name: {name} </h2>
+        <h3 className="m-2 p-2">Location: {location}</h3>
+        <h4 className="m-2 p-2">ID: {id}</h4>
       </div>
     );
   }

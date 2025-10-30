@@ -3,8 +3,12 @@ import { CDN_URL } from "../../utils/constants";
 export const RestaruantCard = (props) => {
   const { name, cuisines, avgRating, sla } = props;
 
+  const getCardCss = () => {
+    return 'm-4 p-4 w-64 bg-gray-50 rounded-lg hover:shadow-lg transition-shadow duration-300'
+  }
+
   return (
-    <div className="m-4 p-4 w-64 bg-gray-50 rounded-lg hover:shadow-lg transition-shadow duration-300">
+    <div className={getCardCss()}>
       <img
         className="w-full h-40 object-cover rounded-lg"
         alt="restaurant logo"

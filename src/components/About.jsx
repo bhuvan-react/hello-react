@@ -8,8 +8,8 @@ class About extends Component{
   }
   render(){
     return(
-      <div>
-      About us Page
+      <div className="">
+      <h1 className="text-center text-3xl md:text-4xl font-bold text-gray-800 mb-6 m-4">About us</h1>
       <UserClass />
     </div>
     )
