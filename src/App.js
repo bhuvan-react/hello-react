@@ -1,56 +1,70 @@
 import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";               
+import { store } from "./store";                      
 import { Header } from "./components/Header";
 import { Body } from "./components/Body";
-import Contact from './components/Contact'
-import { createBrowserRouter, RouterProvider,Outlet } from 'react-router-dom'
 import RestaruantMenu from "./components/RestaurantMenu";
 
-const Grocery = lazy(() => import('./components/Grocery'))
-const About = lazy(() => import('./components/About'))
-const Contact = lazy(() => import('./components/Contact'))
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+} from "react-router-dom";
 
-// Chuncking
-// Code Splitting, Dynamic Bundling / Lazy Loading or on-demand loading
+const Grocery = lazy(() => import("./components/Grocery"));
+const About = lazy(() => import("./components/About"));
+const Contact = lazy(() => import("./components/Contact"));
 
-const AppLayout = () => {
-  return (
-    <div id="container">
-      <Header />
-      <Outlet />
-    </div>
-  );
-};
+const AppLayout = () => (
+  <div id="container">
+    <Header />
+    <Outlet />
+  </div>
+);
 
 const appRouter = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <AppLayout />,
     children: [
+      { path: "/", element: <Body /> },
       {
-        path: '/',
-        element: <Body />
+        path: "/about",
+        element: (
+          <Suspense fallback={<div style={{ padding: "20px" }}>Loading page...</div>}>
+            <About />
+          </Suspense>
+        ),
       },
       {
-        path: '/about',
-        element: <Suspense fallback={<div style={{ padding: '20px' }}>Loading page...</div>}><About /></Suspense>
+        path: "/contact",
+        element: (
+          <Suspense fallback={<div style={{ padding: "20px" }}>Loading page...</div>}>
+            <Contact />
+          </Suspense>
+        ),
       },
       {
-        path: '/contact',
-        element: <Suspense fallback={<div style={{ padding: '20px' }}>Loading page...</div>}><Contact /></Suspense>
+        path: "/grocery",
+        element: (
+          <Suspense fallback={<div style={{ padding: "20px" }}>Loading page...</div>}>
+            <Grocery />
+          </Suspense>
+        ),
       },
       {
-        path: '/grocery',
-        element: <Suspense fallback={<div style={{ padding: '20px' }}>Loading page...</div>}><Grocery /></Suspense>,
+        path: "/restaurant/:resId",
+        element: <RestaruantMenu />,
       },
-      {
-        path: '/restaurant/:resId',
-        element:  <RestaruantMenu />
-      },
-    ]
+    ],
   },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<RouterProvider router = {appRouter} />);
+root.render(
+  <Provider store={store}>               
+    <RouterProvider router={appRouter} />
+  </Provider>
+);
